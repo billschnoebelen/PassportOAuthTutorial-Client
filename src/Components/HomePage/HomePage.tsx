@@ -45,7 +45,7 @@ export default function HomePage() {
             }
         }
 
-    }, []);
+    }, [setDocumentId, setWorkspaceId, setElementId, setServer]);
 
     // Listen for clicks and post a message to the Onshape client
     // document.getElementById('<id of your topmost element>').
