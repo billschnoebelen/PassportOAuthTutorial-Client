@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { myContext } from '../../Context'
 import { IUser } from '../../types/maintypes'
 
@@ -16,34 +16,36 @@ export default function HomePage() {
     // var elementId;
     // var server;
 
+    useEffect(() => {
 
-
-    // Parse query parameters
-    const queryParameters = decodeURIComponent(
-        window.location.search.substring(1)
-    );
-    const queryParametersArray = queryParameters.split("&");
-    for (var i = 0; i < queryParametersArray.length; i++) {
-        const parameterArray = queryParametersArray[i].split("=");
-        if (parameterArray.length === 2) {
-            switch (parameterArray[0]) {
-                case 'documentId':
-                    setDocumentId(parameterArray[1]);
-                    break;
-                case 'workspaceId':
-                    setWorkspaceId(parameterArray[1]);
-                    break;
-                case 'elementId':
-                    setElementId(parameterArray[1]);
-                    break;
-                case 'server':
-                    setServer(parameterArray[1]);
-                    break;
-                default:
-                    break;
+        // Parse query parameters
+        const queryParameters = decodeURIComponent(
+            window.location.search.substring(1)
+        );
+        const queryParametersArray = queryParameters.split("&");
+        for (var i = 0; i < queryParametersArray.length; i++) {
+            const parameterArray = queryParametersArray[i].split("=");
+            if (parameterArray.length === 2) {
+                switch (parameterArray[0]) {
+                    case 'documentId':
+                        setDocumentId(parameterArray[1]);
+                        break;
+                    case 'workspaceId':
+                        setWorkspaceId(parameterArray[1]);
+                        break;
+                    case 'elementId':
+                        setElementId(parameterArray[1]);
+                        break;
+                    case 'server':
+                        setServer(parameterArray[1]);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
-    }
+
+    }, []);
 
     // Listen for clicks and post a message to the Onshape client
     // document.getElementById('<id of your topmost element>').
