@@ -1,9 +1,64 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { myContext } from '../../Context'
 import { IUser } from '../../types/maintypes'
 
 export default function HomePage() {
     const userObject = useContext(myContext) as IUser
+    const [documentId, setDocumentId] = useState<any>()
+    const [workspaceId, setWorkspaceId] = useState<any>()
+    const [elementId, setElementId] = useState<any>()
+    const [server, setServer] = useState<any>()
+
+
+
+    // var documentId;
+    // var workspaceId;
+    // var elementId;
+    // var server;
+
+
+
+    // Parse query parameters
+    const queryParameters = decodeURIComponent(
+        window.location.search.substring(1)
+    );
+    const queryParametersArray = queryParameters.split("&");
+    for (var i = 0; i < queryParametersArray.length; i++) {
+        const parameterArray = queryParametersArray[i].split("=");
+        if (parameterArray.length === 2) {
+            switch (parameterArray[0]) {
+                case 'documentId':
+                    setDocumentId(parameterArray[1]);
+                    break;
+                case 'workspaceId':
+                    setWorkspaceId(parameterArray[1]);
+                    break;
+                case 'elementId':
+                    setElementId(parameterArray[1]);
+                    break;
+                case 'server':
+                    setServer(parameterArray[1]);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    // Listen for clicks and post a message to the Onshape client
+    // document.getElementById('<id of your topmost element>').
+    //     addEventListener('click', function () {
+    //         var message = {
+    //             documentId: documentId,
+    //             workspaceId: workspaceId,
+    //             elementId: elementId,
+    //             messageName: 'closeFlyoutsAndMenus'
+    //         };
+    //         window.parent.postMessage(message, '*');
+    //     }, true);
+
+
+
     return (
         <div>
             {userObject ? (<div><h1>HomePage</h1>
@@ -11,6 +66,13 @@ export default function HomePage() {
             </div>) : <h1>Welcome to my website</h1>
             }
             <p>{document.URL}</p>
+            <ul>
+                <li>documentId: {documentId}</li>
+                <li>workspaceId: {workspaceId}</li>
+                <li>elementId: {elementId}</li>
+                <li>server: {server}</li>
+                <li></li>
+            </ul>
         </div>
     )
 }
