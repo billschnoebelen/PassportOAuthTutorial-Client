@@ -89,7 +89,7 @@ export default function HomePage() {
             }
             <button onClick={sandwich}>sandwich</button>
             <div>
-                <table border-width="1px" align="left" >
+                <table style={{backgroundColor: "lightblue", border: "1px"}} >
                     <tbody>
                         {defaultUnits.map((d: any) => (
                             <tr key={d.key}>
