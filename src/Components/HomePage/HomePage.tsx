@@ -88,11 +88,18 @@ export default function HomePage() {
             </div>) : <h1>Welcome to my website</h1>
             }
             <button onClick={sandwich}>sandwich</button>
-            {defaultUnits && (
-                <div>
-                    <p>Display Units: {defaultUnits}</p>
-                </div>
-            )}
+            <div>
+                <table align="center">
+                    <tbody>
+                        {defaultUnits.map((d: any) => (
+                            <tr key={d.key}>
+                                <td>{d.key}: </td>
+                                <td>{d.value}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             <p>{document.URL}</p>
             <ul>
                 <li>documentId: {documentId}</li>
