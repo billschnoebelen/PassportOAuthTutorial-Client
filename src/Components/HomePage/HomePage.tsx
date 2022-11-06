@@ -48,7 +48,7 @@ export default function HomePage() {
 
 
         (async () => {
-            const resp = await fetch(`api/v5/parts/d/4912026463baa3979185bafa/w/21c6d047e973aacebd6f14ab?elementId=a8debd847934f007545e81ce&withThumbnails=false&includePropertyDefaults=false`);
+            const resp = await fetch(`https://cad.onshape.com/api/v5/parts/d/4912026463baa3979185bafa/w/21c6d047e973aacebd6f14ab?elementId=a8debd847934f007545e81ce&withThumbnails=false&includePropertyDefaults=false`);
             console.log("resp", resp);
         })();
 
