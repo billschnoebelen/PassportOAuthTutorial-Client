@@ -87,6 +87,12 @@ export default function HomePage() {
             </div>) : <h1>Welcome to my website</h1>
             }
             <button onClick={sandwich}>sandwich</button>
+            {/* {user?.os_id && (
+        <div>
+          <p>Display Name: {user?.displayName}</p>
+          <img src={user?.image} alt="user profile"></img>
+        </div>
+      )} */}
             <p>{document.URL}</p>
             <ul>
                 <li>documentId: {documentId}</li>
