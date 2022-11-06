@@ -69,14 +69,15 @@ export default function HomePage() {
     //         window.parent.postMessage(message, '*');
     //     }, true);
 
-    const sandwich = ()=>{
-        
-        axios.get("https://server-passportoauthtutorial.herokuapp.com/sandwich", { withCredentials: true }).then((res: AxiosResponse) => {
-                console.log("sandwich", res.data)
-            
+    const sandwich = () => {
+
+        axios.get("https://server-passportoauthtutorial.herokuapp.com/sandwich", { headers: { 'Accept': 'application/json' }, withCredentials: true }).then((res: AxiosResponse) => {
+            console.log("sandwich", res.data)
+
         })
 
     }
+
 
 
     return (
