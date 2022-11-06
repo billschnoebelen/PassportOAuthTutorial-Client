@@ -9,7 +9,7 @@ export default function HomePage() {
     const [workspaceId, setWorkspaceId] = useState<any>()
     const [elementId, setElementId] = useState<any>()
     const [server, setServer] = useState<any>()
-
+    const [defaultUnits, setDefaultUnits] = useState([]);
 
 
     // var documentId;
@@ -72,7 +72,8 @@ export default function HomePage() {
     const sandwich = () => {
 
         axios.get(`https://server-passportoauthtutorial.herokuapp.com/sandwich${window.location.search}`, { headers: { 'Accept': 'application/json' }, withCredentials: true }).then((res: AxiosResponse) => {
-            console.log("sandwich", res)
+            console.log("sandwich", res.data.defaultUnits.units)
+            setDefaultUnits(res.data.defaultUnits.units)
 
         })
 
@@ -87,12 +88,11 @@ export default function HomePage() {
             </div>) : <h1>Welcome to my website</h1>
             }
             <button onClick={sandwich}>sandwich</button>
-            {/* {user?.os_id && (
-        <div>
-          <p>Display Name: {user?.displayName}</p>
-          <img src={user?.image} alt="user profile"></img>
-        </div>
-      )} */}
+            {defaultUnits && (
+                <div>
+                    <p>Display Units: {defaultUnits}</p>
+                </div>
+            )}
             <p>{document.URL}</p>
             <ul>
                 <li>documentId: {documentId}</li>
