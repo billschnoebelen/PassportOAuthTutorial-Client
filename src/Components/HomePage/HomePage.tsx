@@ -85,7 +85,7 @@ export default function HomePage() {
                 <p>Welcome back {userObject.username}</p>
             </div>) : <h1>Welcome to my website</h1>
             }
-            <button onClick={sandwich}>sandwhich</button>
+            <button onClick={sandwich}>sandwich</button>
             <p>{document.URL}</p>
             <ul>
                 <li>documentId: {documentId}</li>
