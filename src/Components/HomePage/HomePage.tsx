@@ -72,7 +72,7 @@ export default function HomePage() {
     const sandwich = ()=>{
         
         axios.get("https://server-passportoauthtutorial.herokuapp.com/sandwich", { withCredentials: true }).then((res: AxiosResponse) => {
-                console.log("sandwich", res)
+                console.log("sandwich", res.data)
             
         })
 
