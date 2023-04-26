@@ -8,7 +8,7 @@ export default function Context(props: any) {
 
     useEffect(() => {
 
-        axios.get("https://server-passportoauthtutorial.herokuapp.com/getUser", { withCredentials: true }).then((res: AxiosResponse) => {
+        axios.get("http://localhost:8000/getUser", { withCredentials: false }).then((res: AxiosResponse) => {
             if (res.data) {
                 console.log("getUser", res)
                 setUserObject(res.data)
@@ -16,6 +16,16 @@ export default function Context(props: any) {
         })
 
     }, []);
+    // useEffect(() => {
+
+    //     axios.get("https://server-passportoauthtutorial.herokuapp.com/getUser", { withCredentials: true }).then((res: AxiosResponse) => {
+    //         if (res.data) {
+    //             console.log("getUser", res)
+    //             setUserObject(res.data)
+    //         }
+    //     })
+
+    // }, []);
     return (
         <myContext.Provider value={userObject}>{props.children}</myContext.Provider>
     )

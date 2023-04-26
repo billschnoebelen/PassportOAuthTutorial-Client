@@ -79,6 +79,16 @@ export default function HomePage() {
 
     }
 
+    const taco = () => {
+
+        axios.get(`https://server-passportoauthtutorial.herokuapp.com/taco${window.location.search}`, { headers: { 'Accept': 'application/json' }, withCredentials: false }).then((res: AxiosResponse) => {
+            console.log("taco", res.data.defaultUnits.units)
+            setDefaultUnits(res.data.defaultUnits.units)
+
+        })
+
+    }
+
 
 
     return (
@@ -88,8 +98,9 @@ export default function HomePage() {
             </div>) : <h1>Welcome to my website</h1>
             }
             <button onClick={sandwich}>sandwich</button>
+            <button onClick={taco}>test</button>
             <div>
-                <table style={{backgroundColor: "lightblue", border: "1px"}} >
+                <table style={{ backgroundColor: "lightblue", border: "1px" }} >
                     <tbody>
                         {defaultUnits.map((d: any) => (
                             <tr key={d.key}>
