@@ -79,11 +79,21 @@ export default function HomePage() {
 
     }
 
+    // const taco = () => {
+
+    //     axios.get(`https://server-passportoauthtutorial.herokuapp.com/taco${window.location.search}`, { headers: { 'Accept': 'application/json' }, withCredentials: false }).then((res: AxiosResponse) => {
+    //         console.log("taco", res.data.defaultUnits.units)
+    //         setDefaultUnits(res.data.defaultUnits.units)
+
+    //     })
+
+    // }   `http://localhost:8000/taco${window.location.search}`
+
     const taco = () => {
 
-        axios.get(`https://server-passportoauthtutorial.herokuapp.com/taco${window.location.search}`, { headers: { 'Accept': 'application/json' }, withCredentials: false }).then((res: AxiosResponse) => {
-            console.log("taco", res.data.defaultUnits.units)
-            setDefaultUnits(res.data.defaultUnits.units)
+        axios.get(`https://server-passportoauthtutorial.herokuapp.com/taco${window.location.search}`, { headers: { 'Accept': 'application/json' }, withCredentials: true }).then((res: AxiosResponse) => {
+            console.log("taco", res)
+            // setDefaultUnits(res.data.defaultUnits.units)
 
         })
 
