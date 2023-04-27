@@ -91,7 +91,7 @@ export default function HomePage() {
 
     const taco = () => {
 
-        axios.get(`https://server-passportoauthtutorial.herokuapp.com/taco${window.location.search}`, { headers: { 'Accept': 'application/json' }, withCredentials: true }).then((res: AxiosResponse) => {
+        axios.get(`https://server-passportoauthtutorial.herokuapp.com/taco${window.location.search}`, { headers: { 'Accept': 'application/json' }, withCredentials: false, }).then((res: AxiosResponse) => {
             console.log("taco", res)
             // setDefaultUnits(res.data.defaultUnits.units)
 
